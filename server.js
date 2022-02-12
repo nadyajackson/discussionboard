@@ -33,7 +33,7 @@ app.use((err, req, res, next) => {
 const PORT = process.env.PORT || 9000;
 
 if(process.env.NODE_ENV === 'PROD'){
-  app.use(express.static('voiting/build'));
+  app.use(express.static('voting/build'));
   app.get('*', (req, res) =>{
     res.sendFile(path.join(__dirname, 'voting', 'build', 'index.html')); //relative path
   })

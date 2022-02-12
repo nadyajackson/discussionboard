@@ -38,7 +38,7 @@ export default function Auth(){
     }
     return(
         <div id ="stuff">
-            <h1>Rock The Vote in Week 4</h1>
+            <h1>Rock The Vote</h1>
             { !toggle ?
                 <>
                     <NewForm 

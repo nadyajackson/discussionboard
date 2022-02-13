@@ -32,8 +32,14 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 9000;
 
-if(process.env.NODE_ENV === 'PROD'){
-  app.use(express.static(path.join(__dirname, 'build'))) //relative path
+if (process.env.NODE_ENV === 'production') {
+  // Express will serve up production assets
+  app.use(express.static('build'));
+
+  // Express serve up index.html file if it doesn't recognize route
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
+  });
 }
 
 
